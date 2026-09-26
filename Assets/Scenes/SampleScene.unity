@@ -392,6 +392,7 @@ GameObject:
   - component: {fileID: 531494099}
   - component: {fileID: 531494096}
   - component: {fileID: 531494100}
+  - component: {fileID: 531494101}
   m_Layer: 0
   m_Name: Cloud
   m_TagString: Untagged
@@ -479,6 +480,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0.008288533, y: -1.2200009}
   m_Size: {x: 3.3328953, y: 0.63946855}
   m_Direction: 1
+--- !u!114 &531494101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531494095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62897d867fba2e4b9b9461ba404585f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Movement
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
