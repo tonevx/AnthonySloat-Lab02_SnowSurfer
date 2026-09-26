@@ -414,7 +414,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_AngularDamping: 12
   m_GravityScale: 0.9
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -492,6 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62897d867fba2e4b9b9461ba404585f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
+  torqueAmount: 20
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
