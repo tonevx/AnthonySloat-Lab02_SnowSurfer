@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] float torqueAmount = 1f;
+    [SerializeField] float torqueAmount = 3f;
     InputAction moveAction;
     Rigidbody2D myRigidbody2D;
     void Start()
