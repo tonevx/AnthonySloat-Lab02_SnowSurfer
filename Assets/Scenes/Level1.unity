@@ -509,6 +509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CrashDetection
   restartDelay: 1
+  crashParticles: {fileID: 1334541151}
 --- !u!58 &531494103
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -625,7 +626,7 @@ ParticleSystemRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_MaskInteraction: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -847,8 +848,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 1, g: 0, b: 0.052140713, a: 1}
-      maxColor: {r: 1, g: 0.79860795, b: 0, a: 1}
+      minColor: {r: 0, g: 1, b: 0.32066476, a: 1}
+      maxColor: {r: 0, g: 0.28383398, b: 0.8, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5518,6 +5519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FinishLine
   delayTime: 0.5
+  finishParticles: {fileID: 553494130}
 --- !u!61 &624989927
 BoxCollider2D:
   m_ObjectHideFlags: 0
