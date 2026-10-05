@@ -10,6 +10,9 @@ public class Movement : MonoBehaviour
     [SerializeField] float baseSpeed = 15f;
     [SerializeField] float boostSpeed = 20f;
     public bool canControlPlayer = true;
+    float previousRotation;
+    float totalRotation;
+    int flipCount;
 
     SurfaceEffector2D surfaceEffector2D;
     void Start()
@@ -25,6 +28,7 @@ public class Movement : MonoBehaviour
         {
             RotatePlayer();
             BoostPlayer();
+            CalculateFlips();
         }
     }
 
@@ -52,6 +56,19 @@ public class Movement : MonoBehaviour
         {
             surfaceEffector2D.speed = baseSpeed;
         }
+    }
+
+    void CalculateFlips()
+    {
+        float currentRotation = transform.rotation.eulerAngles.z;
+        totalRotation += Mathf.DeltaAngle(previousRotation, currentRotation);
+        if(totalRotation > 340 || totalRotation < -340)
+        {
+            flipCount += 1;
+            totalRotation = 0;
+            print(flipCount);
+        }
+        previousRotation = currentRotation;
     }
 
     public void DisableControls()
