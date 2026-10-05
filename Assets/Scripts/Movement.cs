@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     Vector2 moveVector;
     [SerializeField] float baseSpeed = 15f;
     [SerializeField] float boostSpeed = 20f;
+    public bool canControlPlayer = true;
 
     SurfaceEffector2D surfaceEffector2D;
     void Start()
@@ -20,8 +21,11 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        RotatePlayer();
-        BoostPlayer();
+        if (canControlPlayer)
+        {
+            RotatePlayer();
+            BoostPlayer();
+        }
     }
 
     void RotatePlayer()
@@ -48,5 +52,10 @@ public class Movement : MonoBehaviour
         {
             surfaceEffector2D.speed = baseSpeed;
         }
+    }
+
+    public void DisableControls()
+    {
+        canControlPlayer = false;
     }
 }
