@@ -99,10 +99,11 @@ public class Movement : MonoBehaviour
     }
     public void DeactivatePowerup(PowerupSO powerup)
     {
-        activePowerupCount -= 1;
+        activePowerupCount -= 2;
         if (activePowerupCount == 0)
         {
             powerupParticles.Stop();
+            powerupParticles2.Stop();
         }
         if(powerup.GetPowerupType() == "speed")
         {
