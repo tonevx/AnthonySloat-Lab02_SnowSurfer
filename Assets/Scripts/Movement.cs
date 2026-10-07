@@ -7,12 +7,15 @@ public class Movement : MonoBehaviour
     InputAction moveAction;
     Rigidbody2D myRigidbody2D;
     Vector2 moveVector;
+    ScoreManager scoreManager;
     [SerializeField] float baseSpeed = 15f;
     [SerializeField] float boostSpeed = 20f;
+    [SerializeField] ParticleSystem powerupParticles;
     public bool canControlPlayer = true;
     float previousRotation;
     float totalRotation;
-    ScoreManager scoreManager;
+    int activePowerupCount;
+
 
     SurfaceEffector2D surfaceEffector2D;
     void Start()
@@ -78,6 +81,8 @@ public class Movement : MonoBehaviour
 
     public void ActivatePowerup(PowerupSO powerup)
     {
+        powerupParticles.Play();
+        activePowerupCount += 1;
         if(powerup.GetPowerupType() == "speed")
         {
             baseSpeed += powerup.GetValueChange();
@@ -90,6 +95,11 @@ public class Movement : MonoBehaviour
     }
     public void DeactivatePowerup(PowerupSO powerup)
     {
+        activePowerupCount -= 1;
+        if (activePowerupCount == 0)
+        {
+            powerupParticles.Stop();
+        }
         if(powerup.GetPowerupType() == "speed")
         {
             baseSpeed -= powerup.GetValueChange();
