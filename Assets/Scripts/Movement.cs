@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Splines.ExtrusionShapes;
 
 public class Movement : MonoBehaviour
 {
@@ -11,19 +12,21 @@ public class Movement : MonoBehaviour
     [SerializeField] float baseSpeed = 15f;
     [SerializeField] float boostSpeed = 20f;
     [SerializeField] ParticleSystem powerupParticles;
+    [SerializeField] ParticleSystem powerupParticles2;
+
     public bool canControlPlayer = true;
     float previousRotation;
     float totalRotation;
     int activePowerupCount;
-
-
     SurfaceEffector2D surfaceEffector2D;
+    public CircleCollider2D circleCollider2D;
     void Start()
     {
        moveAction = InputSystem.actions.FindAction("Move");
        myRigidbody2D = GetComponent<Rigidbody2D>();
        surfaceEffector2D = FindAnyObjectByType<SurfaceEffector2D>(); // FindFirstObjectOfType has been deprecated - and the video instructions recommend that this method be used instead.
-       scoreManager = FindAnyObjectByType<ScoreManager>();
+       scoreManager = FindAnyObjectByType<ScoreManager>(FindObjectsInactive.Include);
+       circleCollider2D = GetComponent<CircleCollider2D>();
     }
 
     void Update()
@@ -81,15 +84,16 @@ public class Movement : MonoBehaviour
 
     public void ActivatePowerup(PowerupSO powerup)
     {
-        powerupParticles.Play();
         activePowerupCount += 1;
         if(powerup.GetPowerupType() == "speed")
         {
+            powerupParticles.Play();
             baseSpeed += powerup.GetValueChange();
             boostSpeed += powerup.GetValueChange();
         }
         else if (powerup.GetPowerupType() == "torque")
         {
+            powerupParticles2.Play();
             torqueAmount += powerup.GetValueChange();
         }
     }
