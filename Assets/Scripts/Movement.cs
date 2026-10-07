@@ -88,4 +88,16 @@ public class Movement : MonoBehaviour
             torqueAmount += powerup.GetValueChange();
         }
     }
+    public void DeactivatePowerup(PowerupSO powerup)
+    {
+        if(powerup.GetPowerupType() == "speed")
+        {
+            baseSpeed -= powerup.GetValueChange();
+            boostSpeed -= powerup.GetValueChange();
+        }
+        else if (powerup.GetPowerupType() == "torque")
+        {
+            torqueAmount -= powerup.GetValueChange();
+        }
+    }
 }
